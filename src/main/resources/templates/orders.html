@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<![endif]-->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- user-wishlist11:10-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Furnitica - Minimalist Furniture HTML Template</title>
+
+    <meta name="keywords" content="Furniture, Decor, Interior">
+    <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
+    <meta name="author" content="tivatheme">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+
+    <!-- libs CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/nivo-slider.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/animate.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/style.css">
+    <link rel="stylesheet" href="libs/font-material/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="libs/slider-range/css/jslider.css">
+    <link rel="stylesheet" href="libs/owl-carousel/assets/owl.carousel.min.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/reponsive.css">
+</head>
+
+<body class="user-wishlist blog">
+    <header>
+ <div th:insert="home.html :: header"> </div>
+    </header>
+
+    <!-- main content -->
+    <div class="main-content">
+        <div class="wrap-banner">
+
+            <!-- breadcrumb -->
+            <nav class="breadcrumb-bg">
+                <div class="container no-index">
+                    <div class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a href="#">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Wishlists</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <!-- main -->
+        <div id="wrapper-site">
+            <div class="container">
+                <div class="row">
+                    <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
+                        <div id="main">
+                            <div id="content" class="page-content">
+                                <div id="mywishlist">
+                                    <h1 class="title-page">My Orders</h1>
+
+                                    <div id="block-history" class="block-center">
+                                        <table class="std table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="first_item">Order id</th>
+                                                    <th class="item mywishlist_first">Products </th>
+                                                    <th class="item mywishlist_first">Order Date</th>
+                                                    <th class="item mywishlist_second"> Total Order Price</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr id="wishlist_1" th:each="order,iterStat: ${orders}">
+                                                    <td>
+                                                        <span th:text="${order.id}"> </span>
+                                                    </td>
+                                                    <td class="bold align_center">
+                                                        <span th:each="orderFood : ${order.orderFoods}">
+
+                                                        <p th:with="result=${orderFood.price * orderFood.quantity_orderfood}">
+                                                          <span th:text="${orderFood.quantity_orderfood}+'x'+${orderFood.food.name} +' - $' +${result} +'  ( $'+${orderFood.price}+' per food)'"></span>
+                                                        </p>
+
+                                                        </span>
+                                                    </td>
+
+                                                    <td>
+                                                         <span th:text="${order.order_date}"> </span>
+
+                                                    </td>
+                                                      <td>
+                                                                                                        <span th:text="'$'+${prices[iterStat.index]}"> </span>
+
+                                                                                                       </td>
+
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="page-home">
+                                        <a class="btn btn-default" th:href="@{/}">
+                                            <i class="fa fa-home" aria-hidden="true"></i>
+                                            <span>Homepage</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- back top top -->
+    <div class="back-to-top">
+        <a href="#">
+            <i class="fa fa-long-arrow-up"></i>
+        </a>
+    </div>
+
+
+<div th:insert="home.html :: header-mobile"> </div>
+    <!-- Page Loader -->
+    <div id="page-preloader">
+        <div class="page-loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/popper/popper.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
+    <script src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script src="libs/slider-range/js/tmpl.js"></script>
+    <script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
+    <script src="libs/slider-range/js/draggable-0.1.js"></script>
+    <script src="libs/slider-range/js/jquery.slider.js"></script>
+    <script src="libs/slick-slider/js/slick.min.js"></script>
+
+    <!-- Template JS -->
+    <script src="js/theme.js"></script>
+</body>
+
+
+<!-- user-wishlist11:10-->
+</html>

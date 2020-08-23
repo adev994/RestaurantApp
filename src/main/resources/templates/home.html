@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<![endif]-->
+<html lang="zxx"  xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Restaurant App</title>
+
+    <meta name="keywords" content="Restaurant App">
+    <meta name="description" content="Restaurant App">
+    <meta name="author" content="tivatheme">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/libs/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{libs/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{libs/font-material/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{libs/nivo-slider/css/nivo-slider.css}">
+    <link rel="stylesheet" th:href="@{libs/nivo-slider/css/animate.css}">
+    <link rel="stylesheet" th:href="@{libs/nivo-slider/css/style.css}">
+    <link rel="stylesheet" th:href="@{libs/owl-carousel/assets/owl.carousel.min.css}">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/reponsive.css}">
+</head>
+
+<body id="home">
+    <header>
+       <!-- header left mobie -->
+       <div th:fragment="header">
+               <div class="header-mobile d-md-none">
+                   <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
+
+                       <!-- menu left -->
+                       <div id="mobile_mainmenu" class="item-mobile-top">
+                           <i class="fa fa-bars" aria-hidden="true"></i>
+                       </div>
+
+                       <!-- logo -->
+                       <div class="mobile-logo">
+                           <a href="index-2.html">
+                               <img height="40px" th:src="@{/img/home/logo.png}" alt="Restaurant App">
+                           </a>
+                       </div>
+
+                       <!-- menu right -->
+                       <div class="mobile-menutop" data-target="#mobile-pagemenu">
+                           <i class="zmdi zmdi-more"></i>
+                       </div>
+                   </div>
+
+                   <!-- search -->
+
+               </div>
+
+        <!-- header desktop -->
+        <div class="header-top d-xs-none ">
+            <div class="container">
+                <div class="row">
+                    <!-- logo -->
+                    <div class="col-sm-2 col-md-2 d-flex align-items-center">
+                        <div id="logo">
+                            <a th:href="@{/}">
+                                <img  th:src="@{/img/home/logo.png}" height="100px" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- menu -->
+                    <div class="main-menu col-sm-4 col-md-5 align-items-center justify-content-center navbar-expand-md">
+                        <div class="menu navbar collapse navbar-collapse">
+                            <ul class="menu-top navbar-nav">
+                                  <li class="nav-link">
+                                 <a th:href="@{/}" class="parent">Home</a>
+                                            </li>
+
+                                     <li sec:authorize="isAuthenticated()">
+                                                                       <a th:href="@{/food}" class="parent">Food</a>
+                                                           </li>
+
+                                                                                         <li sec:authorize="isAuthenticated()">
+                                                                                                                           <a th:href="@{/orders}" class="parent">Orders history</a>
+                                                                                                               </li>
+                                                                                                                <li sec:authorize="isAuthenticated()">
+                                                                                                                                 <a th:href="@{/active-orders}" class="parent">Active Orders </a>
+                                                                                                                                                                </li>
+                                                                                                               <li sec:authorize="hasRole('ROLE_ADMIN')">
+                                                                                                                 <a th:href="@{/add-user}" class="parent">Add a Waiter</a>
+                                                                                                               </li>
+                                                                                                                   <li sec:authorize="hasRole('ROLE_ADMIN')">
+
+                                                                                                                                                                                     <a th:href="@{/addfood}" class="parent">
+                                                                                                                                                                                         Add Food</a>
+
+                                                                                                                                                                                 </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- search-->
+                    <div id="search_widget" class="col-sm-6 col-md-5 align-items-center justify-content-end d-flex" style="margin-left:433px;">
+
+
+                        <!-- acount  -->
+                        <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
+                            <div class="myaccount-title">
+<a href="#acount" data-toggle="collapse" class="acount" aria-expanded="true">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<span>Account</span>
+										<i class="fa fa-angle-down" aria-hidden="true"></i>
+									</a>
+
+                            </div>
+                            <div id="acount" class="collapse">
+                                <div class="account-list-content">
+
+                                   <div sec:authorize="isAuthenticated()">
+                                        <a href="#" onclick="document.getElementById('logout-form').submit();" > Logout </a>
+                                        <form id="logout-form" th:action="@{/logout}" method="post">
+                                        </form>
+                                    </div>
+                                     <div sec:authorize="isAnonymous()">
+                                                                            <a class="Login" th:href="@{/login}"  >
+                                                                                <i class="fa fa-sign-in"></i>
+                                                                                <span>Login</span>
+                                                                            </a>
+                                                                        </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                           <div sec:authorize="isAuthenticated()">
+                        <div class="desktop_cart">
+                            <div class="blockcart block-cart cart-preview tiva-toggle">
+                                <div class="header-cart tiva-toggle-btn">
+                                    <span class="cart-products-count" th:text="${order_foods_size}"></span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </div>
+                                <div class="dropdown-content">
+                                    <div class="cart-content">
+                                        <table>
+                                            <tbody>
+                                                <tr th:each="order_food: ${order_foods}" >
+                                                    <td class="product-image">
+                                                        <a href="product-detail.html" th:with="baseUrl='/img/food/'+${order_food.food.category}+'/'+${order_food.food.image}" >
+                                                            <img th:src="@{${baseUrl}}" alt="Product">
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="product-name" th:text="${order_food.quantity_orderfood}+'x '+${order_food.food.name}">
+
+                                                        </div>
+                                                        <div th:with="result=${order_food.price * order_food.quantity_orderfood}">
+                                                          <span class="product-price"  th:text="'$'+${result} +'  ( $'+${order_food.price}+' per food)'"></span>
+
+                                                        </div>
+                                                    </td>
+                                                    <td class="action">
+                                                        <a class="remove" th:href="@{/remove_form_cart(id=${order_food.id})}">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="total">
+                                                    <td colspan="2">Total:</td>
+                                                    <td th:text="'$ '+${total_price}"> </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="3" class="d-flex justify-content-center">
+                                                        <div class="cart-button">
+                                                            <a th:href="@{cart}" title="View Cart">View Cart</a>
+                                                            <a th:href="@{checkout}" title="Checkout">Checkout</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <div class="main-content">
+        <div class="wrap-banner">
+            <!-- menu category -->
+            <div class="container position">
+                <div class="section menu-banner d-xs-none">
+                    <div class="tiva-verticalmenu block">
+                        <div class="box-content">
+                            <div class="verticalmenu" role="navigation">
+                                <ul class="menu level1">
+                                    <li class="item parent">
+                                        <a th:href="@{/food/starters}" class="hasicon" title="Starters">
+                                            Starters</a>
+
+                                    </li>
+                                    <li class="item parent group">
+                                        <a th:href="@{/food/main}" class="hasicon" title="Main">
+                                            Main
+                                        </a>
+
+                                    </li>
+                                    <li class="item group-category-img parent group">
+                                        <a th:href="@{/food/drink}" class="hasicon" title="Drinks">
+                                          Drinks
+										</a>
+
+                                    </li>
+                                        <li class="item group-category-img parent group">
+                                        <a th:href="@{/food/others}" class="hasicon" title="Others">
+                                          Others
+										</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- slide show -->
+            <div class="section banner">
+                <div class="tiva-slideshow-wrapper">
+                    <div id="tiva-slideshow" class="nivoSlider">
+                        <a href="#">
+                            <img class="img-responsive" src="img/home/home-slide-1.jpg" title="#caption1" alt="Slideshow image">
+                        </a>
+
+                        <a href="#">
+                            <img class="img-responsive" src="img/home/home-slide-3.jpg" title="#caption3" alt="Slideshow image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main -->
+        <div id="wrapper-site">
+            <div id="content-wrapper" class="full-width">
+                <div id="main">
+                    <section class="page-home">
+                        <div class="container">
+
+                            <!-- delivery form -->
+                            <div class="section policy-home col-lg-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="block">
+                                            <div class="block-content">
+                                                <div class="policy-item">
+                                                    <div class="policy-content iconpolicy1">
+                                                        <img src="img/home/home1-policy.png" alt="img">
+                                                        <div class="policy-name mb-5">FREE DELIVERY FROM $ 30</div>
+                                                        <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tiva-html col-lg-4 col-md-4">
+                                        <div class="block">
+                                            <div class="block-content">
+                                                <div class="policy-item">
+                                                    <div class="policy-content iconpolicy2">
+                                                        <img src="img/home/home1-policy2.png" alt="img">
+                                                        <div class="policy-name mb-5">FREE (Optional) </div>
+                                                        <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tiva-html col-lg-4 col-md-4">
+                                        <div class="block">
+                                            <div class="block-content">
+                                                <div class="policy-item">
+                                                    <div class="policy-content iconpolicy3">
+                                                        <img src="img/home/home1-policy3.png" alt="img">
+                                                        <div class="policy-name mb-5">MONEY BACK GUARANTEED</div>
+                                                        <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+ <!-- menu mobie left -->
+ <div th:fragment="header-mobile">
+    <div class="mobile-top-menu d-md-none">
+        <button type="button" class="close" aria-label="Close">
+            <i class="zmdi zmdi-close"></i>
+        </button>
+        <div class="tiva-verticalmenu block" data-count_showmore="17">
+            <div class="box-content block-content">
+                <div class="verticalmenu" role="navigation">
+                    <ul class="menu level1">
+                        <li class="item  parent">
+                            <a th:href="@{/food/starters}" class="hasicon" title="Starters">
+                                Starters</a>
+
+                        </li>
+
+                                                <li class="item  parent">
+                                                                            <a th:href="@{/food/main}" class="hasicon" title="Main">
+                                                                                Main</a>
+
+                                                                        </li>
+                                                                        <li class="item  parent">
+                                                                                                    <a th:href="@{/food/drink}" class="hasicon" title="Drinks">
+                                                                                                        Drinks</a>
+
+                                                                                                </li>
+                                                                                                 <li class="item  parent">
+                                                                                                                                                    <a th:href="@{/food/others}"  class="hasicon" title="Others">
+                                                                                                                                                        Others</a>
+
+                                                                                                                                                </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- menu mobie right -->
+    <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up active d-md-none">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="title-box">Menu</div>
+                <div class="close-box">Close</div>
+            </div>
+            <div class="box-content">
+                <nav>
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div id="megamenu" class="clearfix">
+                        <ul class="menu level1">
+                            <li class="item home-page has-sub">
+
+                                <a th:href="@{/}" title="Home">
+                                    <i class="fa fa-home" aria-hidden="true"></i>Home</a>
+
+
+                            </li>
+                              <li class="item home-page has-sub" sec:authorize="isAuthenticated()">
+                                                                                                   <a th:href="@{/food}" class="parent"> <i class="fa fa-cutlery" aria-hidden="true"></i> Food</a>
+                                                                                       </li>
+
+                                                                                                                     <li class="item home-page has-sub" sec:authorize="isAuthenticated()">
+                                                                                                                                                       <a th:href="@{/orders}" class="parent"><i class="fa fa-bell" aria-hidden="true"></i>Orders history</a>
+                                                                                                                                           </li>
+                                                                                                                                            <li sec:authorize="hasRole('ROLE_ADMIN')">
+                                                                                                                                                                                                                                                            <a th:href="@{/add-user}" class="parent"><i class="fa fa-plus-square" aria-hidden="true"></i>Add a Waiter</a>
+                                                                                                                                                                                                                                                          </li>
+
+
+
+
+
+                            <li class="item has-sub">
+ <div sec:authorize="isAuthenticated()">
+                                 <a href="#" onclick="document.getElementById('logout-form').submit();" ><i class="fa fa-address-book" aria-hidden="true"></i> Logout </a>
+                                                                                                    <form id="logout-form" th:action="@{/logout}" method="post">
+                                                                                                    </form>
+
+</div>
+  <div sec:authorize="isAnonymous()">
+                                                                                                        <a class="Login" th:href="@{/login}"  >
+                                                                                                            <i class="fa fa-sign-in"></i>
+                                                                                                            <span>Login</span>
+                                                                                                        </a>
+                                                                                                    </div>
+
+                            </li>
+
+                            <li class="item group has-sub" >
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/addfood}" title="Page">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>Add Food</a>
+</div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Page Loader -->
+    <div id="page-preloader">
+        <div class="page-loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+
+    <!-- Vendor JS -->
+    <script th:src="@{libs/jquery/jquery.min.js}"></script>
+    <script th:src="@{libs/popper/popper.min.js}"></script>
+    <script th:src="@{libs/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{libs/nivo-slider/js/jquery.nivo.slider.js}"></script>
+    <script th:src="@{libs/owl-carousel/owl.carousel.min.js}"></script>
+
+    <!-- Template JS -->
+    <script th:src="@{js/theme.js}"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- product-grid-sidebar-left10:54-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Restaurant App</title>
+
+    <meta name="keywords" content="Restaurant App">
+    <meta name="description" content="Restaurant App">
+    <meta name="author" content="tivatheme">
+
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" th:href="@{/libs/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/libs/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/libs/nivo-slider/css/nivo-slider.css}">
+    <link rel="stylesheet" th:href="@{/libs/nivo-slider/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/libs/nivo-slider/css/style.css}">
+    <link rel="stylesheet" th:href="@{/libs/font-material/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{/libs/slider-range/css/jslider.css}">
+    <link rel="stylesheet" th:href="@{/libs/owl-carousel/assets/owl.carousel.min.css}">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reponsive.css}">
+</head>
+
+<body id="product-sidebar-left" class="product-grid-sidebar-left">
+    <header>
+        <!-- header left mobie -->
+        <div th:insert="home.html :: header"> </div>
+    </header>
+
+
+
+
+    <div id="wrapper-site">
+                <div class="container">
+                    <div class="row">
+                        <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
+                            <div id="main">
+                                <div id="content" class="page-content">
+                                    <div id="mywishlist">
+                                        <h1 class="title-page">My Active Orders</h1>
+
+                                        <div id="block-history" class="block-center">
+                                            <table class="std table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="first_item">Order id</th>
+                                                        <th class="item mywishlist_first">Products </th>
+                                                        <th></th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="wishlist_1" th:each="order,iterStat: ${orders}">
+                                                        <td>
+                                                            <span th:text="${order.id}"> </span>
+                                                        </td>
+                                                        <td class="bold align_center">
+                                                            <span th:each="orderFood : ${order.orderFoods}">
+
+                                                            <p th:with="result=${orderFood.price * orderFood.quantity_orderfood}">
+                                                              <span th:text="${orderFood.quantity_orderfood}+'x'+${orderFood.food.name} +' - $' +${result} +'  ( $'+${orderFood.price}+' per food)'"></span>
+                                                            </p>
+
+                                                            </span>
+                                                        </td>
+                                                        <td>  <div class="page-home">
+                                                                                                         <a class="btn btn-default" th:href="@{/choose-order(id=${order.id})}">
+                                                                                                             <span>CHOOSE </span>
+                                                                                                         </a>
+                                                                                                     </div></td>
+
+
+
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="page-home">
+                                            <a class="btn btn-default" th:href="@{/}">
+                                                <i class="fa fa-home" aria-hidden="true"></i>
+                                                <span>Homepage</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div th:insert="home.html :: header-mobile"> </div>
+
+    <!-- Page Loader -->
+    <div id="page-preloader">
+        <div class="page-loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script th:src="@{/libs/jquery/jquery.min.js}"></script>
+    <script th:src="@{/libs/popper/popper.min.js}"></script>
+    <script th:src="@{/libs/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/libs/nivo-slider/js/jquery.nivo.slider.js}"></script>
+    <script th:src="@{/libs/owl-carousel/owl.carousel.min.js}"></script>
+    <script th:src="@{/libs/slider-range/js/tmpl.js}"></script>
+    <script th:src="@{/libs/slider-range/js/jquery.dependClass-0.1.js}"></script>
+    <script th:src="@{/libs/slider-range/js/draggable-0.1.js}"></script>
+    <script th:src="@{/libs/slider-range/js/jquery.slider.js}"></script>
+
+    <!-- Template JS -->
+    <script th:src="@{/js/theme.js}"></script>
+</body>
+
+
+<!-- product-grid-sidebar-left10:55-->
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- product-checkout07:12-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Furnitica - Minimalist Furniture HTML Template</title>
+
+    <meta name="keywords" content="Furniture, Decor, Interior">
+    <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
+    <meta name="author" content="tivatheme">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+
+    <!-- libs CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/nivo-slider.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/animate.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/style.css">
+    <link rel="stylesheet" href="libs/font-material/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="libs/slider-range/css/jslider.css">
+    <link rel="stylesheet" href="libs/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="libs/slick-slider/css/slick.css">
+    <link rel="stylesheet" href="libs/slick-slider/css/slick-theme.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/reponsive.css">
+</head>
+
+<body class="product-checkout checkout-cart">
+    <header>
+ <div th:insert="home.html :: header"> </div>
+        </header>
+
+    <!-- main content -->
+    <div id="checkout" class="main-content">
+        <div class="wrap-banner">
+            <!-- breadcrumb -->
+            <nav class="breadcrumb-bg">
+                <div class="container no-index">
+                    <div class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a th:href="@{/}">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/checkout}">
+                                    <span>Checkout</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </nav>
+			
+            <!-- main -->
+              <div id="wrapper-site">
+                        <div id="content-wrapper" class="full-width">
+                            <div id="main">
+                                <div class="container">
+                                    <h1 class="text-center title-page">Checkout</h1>
+                                    <div class="login-form">
+                                           <form  th:action="@{/checkout}" method="post">
+                                            <div>
+                                            <div th:text="'Total Price : $ '+${total_price}">
+                                            </div>
+                                              <div class="form-check">
+
+                                                <input class="form-check-input" type="radio" name="PaymentBy" id="exampleRadios1" value="card" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                  Payed By Card
+                                                </label>
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="PaymentBy" id="exampleRadios2" value="cash">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                  Payed By Cash
+                                                </label>
+                                              </div>
+
+                                            <div class="clearfix">
+                                                <div class="text-center no-gutters">
+
+                                                    <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                                        Finish the Order
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+         </div>
+    </div>
+
+  <div th:insert="home.html :: header-mobile"> </div>
+    <!-- Page Loader -->
+    <div id="page-preloader">
+        <div class="page-loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/popper/popper.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
+    <script src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script src="libs/slider-range/js/tmpl.js"></script>
+    <script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
+    <script src="libs/slider-range/js/draggable-0.1.js"></script>
+    <script src="libs/slider-range/js/jquery.slider.js"></script>
+    <script src="libs/slick-slider/js/slick.min.js"></script>
+
+    <!-- Template JS-->
+    <script src="js/theme.js"></script>
+</body>
+
+
+<!-- product-checkout07:13-->
+</html>

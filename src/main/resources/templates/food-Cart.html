@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- product-cart07:06-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Furnitica - Minimalist Furniture HTML Template</title>
+
+    <meta name="keywords" content="Furniture, Decor, Interior">
+    <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
+    <meta name="author" content="tivatheme">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+
+    <!-- libs CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/nivo-slider.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/animate.css">
+    <link rel="stylesheet" href="libs/nivo-slider/css/style.css">
+    <link rel="stylesheet" href="libs/font-material/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="libs/slider-range/css/jslider.css">
+    <link rel="stylesheet" href="libs/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="libs/slick-slider/css/slick.css">
+    <link rel="stylesheet" href="libs/slick-slider/css/slick-theme.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/reponsive.css">
+</head>
+
+<body class="product-cart checkout-cart blog">
+    <header>
+                <div th:insert="home.html :: header"> </div>
+    </header>
+
+    <!-- main content -->
+    <div class="main-content" id="cart">
+        <!-- main -->
+        <div id="wrapper-site">
+            <!-- breadcrumb -->
+            <nav class="breadcrumb-bg">
+                <div class="container no-index">
+                    <div class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a th:href="@{/}">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/cart}">
+                                    <span>Cart</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
+                        <section id="main">
+                            <div class="cart-grid row">
+                                <div class="col-md-9 col-xs-12 check-info">
+                                    <h1 class="title-page">Food Cart</h1>
+                                    <div class="cart-container">
+                                        <div class="cart-overview js-cart">
+                                            <ul class="cart-items">
+                               <div th:if="${#lists.isEmpty(order_foods)}">
+                                <div class="alert alert-warning" role="alert">
+                                  No food Order Available !!
+                                </div>
+                               </div>
+                                <div th:unless="${#lists.isEmpty(order_foods)}">
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Food</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="cart-item" th:each="order_food: ${order_foods}">
+      <td width="15px" scope="row"  th:with="baseUrl='/img/food/'+${order_food.food.category}+'/'+${order_food.food.image}">
+
+
+                                                                                          <img width="80px" height="50px"  th:src="@{${baseUrl}}" alt="Organic Strawberry Fruits">
+
+                                                                                 </td>
+      <td th:text="${order_food.food.name}"></td>
+      <td th:text="'$ '+${order_food.price}"></td>
+      <td th:text="${order_food.quantity_orderfood}"></td>
+      <td  th:with="result=${order_food.price * order_food.quantity_orderfood}">
+                                                                    <span th:text="' $' +${result}"></span>
+                                                                  </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+                                            </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div th:if="${#lists.isEmpty(order_foods)}">
+                                                    <a th:href="@{/food}" class="continue btn btn-primary pull-xs-right">
+                                                                                           Back
+                                                                                       </a>
+                                                                   </div>
+                                                                     <div th:unless="${#lists.isEmpty(order_foods)}">
+                                                                     <strong style="float:right" th:text="'Total Order Price : $'+${total_price}"></strong>
+                                    <a th:href="@{checkout}" class="continue btn btn-primary pull-xs-right">
+                                                                           Continue
+                                                                       </a>
+                                                                       </div>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div th:insert="home.html :: header-mobile"> </div>
+    <!-- Page Loader -->
+    <div id="page-preloader">
+        <div class="page-loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/popper/popper.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
+    <script src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script src="libs/slider-range/js/tmpl.js"></script>
+    <script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
+    <script src="libs/slider-range/js/draggable-0.1.js"></script>
+    <script src="libs/slider-range/js/jquery.slider.js"></script>
+    <script src="libs/slick-slider/js/slick.min.js"></script>
+
+    <!-- Template JS -->
+    <script src="js/theme.js"></script>
+</body>
+
+
+<!-- product-cart07:12-->
+</html>
