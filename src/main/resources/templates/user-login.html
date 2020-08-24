@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -41,111 +43,109 @@
 </head>
 
 <body class="user-login blog">
-   <header>
-    <div th:insert="home.html :: header"> </div>
-    </header>
+<header>
+    <div th:insert="home.html :: header"></div>
+</header>
 
-    <!-- main content -->
-    <div class="main-content">
-        <div class="wrap-banner">
+<!-- main content -->
+<div class="main-content">
+    <div class="wrap-banner">
 
-            <!-- breadcrumb -->
-            <nav class="breadcrumb-bg">
-                <div class="container no-index">
-                    <div class="breadcrumb">
-                        <ol>
-                            <li>
-                                <a href="#">
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span>Login</span>
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
+        <!-- breadcrumb -->
+        <nav class="breadcrumb-bg">
+            <div class="container no-index">
+                <div class="breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="#">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Login</span>
+                            </a>
+                        </li>
+                    </ol>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-        </div>
+    </div>
 
-        <!-- main -->
-        <div id="wrapper-site">
-            <div id="content-wrapper" class="full-width">
-                <div id="main">
-                    <div class="container">
-                        <h1 class="text-center title-page">Log In</h1>
-                        <div class="login-form">
-                               <form  th:action="@{/login}" method="post">
-                                <div>
- <div th:if="${param.error}" class="text-danger">
-            Invalid username and password.</div>
-        <div th:if="${param.logout}" class="text-info">
-            You have been logged out.</div>
-                                    <div class="form-group no-gutters">
-                                        <input class="form-control" name="username" type="text" placeholder="Username">
-                                    </div>
-                                    <div class="form-group no-gutters">
-                                        <div class="input-group js-parent-focus">
-                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password"  placeholder="Password">
-                                        </div>
-                                    </div>
-
+    <!-- main -->
+    <div id="wrapper-site">
+        <div id="content-wrapper" class="full-width">
+            <div id="main">
+                <div class="container">
+                    <h1 class="text-center title-page">Log In</h1>
+                    <div class="login-form">
+                        <form th:action="@{/login}" method="post">
+                            <div>
+                                <div th:if="${param.error}" class="text-danger">Invalid username and password.</div>
+                                <div th:if="${param.logout}" class="text-info">You have been logged out.</div>
+                                <div class="form-group no-gutters">
+                                    <input class="form-control" name="username" type="text" placeholder="Username">
                                 </div>
-                                <div class="clearfix">
-                                    <div class="text-center no-gutters">
-
-                                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                            Sign in
-                                        </button>
+                                <div class="form-group no-gutters">
+                                    <div class="input-group js-parent-focus">
+                                        <input class="form-control js-child-focus js-visible-password" name="password"
+                                               type="password" placeholder="Password">
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+
+                            </div>
+                            <div class="clearfix">
+                                <div class="text-center no-gutters">
+
+                                    <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                        Sign in
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div th:insert="home.html :: header-mobile"> </div>
+<div th:insert="home.html :: header-mobile"></div>
 
-    <!-- back top top -->
-    <div class="back-to-top">
-        <a href="#">
-            <i class="fa fa-long-arrow-up"></i>
-        </a>
+<!-- back top top -->
+<div class="back-to-top">
+    <a href="#">
+        <i class="fa fa-long-arrow-up"></i>
+    </a>
+</div>
+
+
+<!-- Page Loader -->
+<div id="page-preloader">
+    <div class="page-loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
     </div>
+</div>
 
+<!-- Vendor JS -->
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/popper/popper.min.js"></script>
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
+<script src="libs/owl-carousel/owl.carousel.min.js"></script>
+<script src="libs/slider-range/js/tmpl.js"></script>
+<script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
+<script src="libs/slider-range/js/draggable-0.1.js"></script>
+<script src="libs/slider-range/js/jquery.slider.js"></script>
+<script src="libs/slick-slider/js/slick.min.js"></script>
 
-
-    <!-- Page Loader -->
-    <div id="page-preloader">
-        <div class="page-loading">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>
-
-    <!-- Vendor JS -->
-    <script src="libs/jquery/jquery.min.js"></script>
-    <script src="libs/popper/popper.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
-    <script src="libs/owl-carousel/owl.carousel.min.js"></script>
-    <script src="libs/slider-range/js/tmpl.js"></script>
-    <script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
-    <script src="libs/slider-range/js/draggable-0.1.js"></script>
-    <script src="libs/slider-range/js/jquery.slider.js"></script>
-    <script src="libs/slick-slider/js/slick.min.js"></script>
-
-    <!-- Template JS -->
-    <script src="js/theme.js"></script>
+<!-- Template JS -->
+<script src="js/theme.js"></script>
 </body>
 
 

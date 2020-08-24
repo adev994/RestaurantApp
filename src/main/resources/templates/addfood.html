@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -41,122 +43,126 @@
 </head>
 
 <body class="product-cart checkout-cart blog">
-    <header>
-                <div th:insert="home.html :: header"> </div>
-    </header>
+<header>
+    <div th:insert="home.html :: header"></div>
+</header>
 
-    <!-- main content -->
-    <div class="main-content" id="cart">
+<!-- main content -->
+<div class="main-content" id="cart">
+    <!-- main -->
+    <div id="wrapper-site">
+        <!-- breadcrumb -->
+        <nav class="breadcrumb-bg">
+            <div class="container no-index">
+                <div class="breadcrumb">
+                    <ol>
+                        <li>
+                            <a th:href="@{/}">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/addfood}">
+                                <span>add Food</span>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
         <!-- main -->
         <div id="wrapper-site">
-            <!-- breadcrumb -->
-            <nav class="breadcrumb-bg">
-                <div class="container no-index">
-                    <div class="breadcrumb">
-                        <ol>
-                            <li>
-                                <a th:href="@{/}">
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a th:href="@{/addfood}">
-                                    <span>add Food</span>
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </nav>
-                 <!-- main -->
-                    <div id="wrapper-site">
-                        <div id="content-wrapper" class="full-width">
-                            <div id="main">
-                                <div class="container">
-                                    <h1 class="text-center title-page">add Food</h1>
-                                    <div class="login-form">
-                                           <form  th:action="@{/addfood}" method="post" enctype="multipart/form-data" onsubmit="return validate()">
-                                            <div>
+            <div id="content-wrapper" class="full-width">
+                <div id="main">
+                    <div class="container">
+                        <h1 class="text-center title-page">add Food</h1>
+                        <div class="login-form">
+                            <form th:action="@{/addfood}" method="post" enctype="multipart/form-data"
+                                  onsubmit="return validate()">
+                                <div>
 
-                                                <div class="form-group no-gutters">
-                                                    <input class="form-control" name="name" type="text" placeholder="Name">
-                                                </div>
-
-
-                                                <div class="form-group no-gutters">
-                                                <select class="form-control form-control-lg" name="category">
-                                                <option value="starters">Starters</option>
-                                                <option value="drink">Drink</option>
-                                                <option value="main">Main</option>
-                                                <option value="others">Others</option>
-                                                </select>
-                                                </div>
-
-                                                <div class="form-group no-gutters">
-                                                    <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="price" type="number"  placeholder="Price On Dollar $">
-                                                    </div>
-                                                </div>
-                                                            <div class="form-group no-gutters">
-                                                    <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="quantity" type="number"  placeholder="Quantity in stock">
-                                                    </div>
-
-                                                </div>
-                                                  <div class="form-group no-gutters">
-                                                                                                    <div class="input-group js-parent-focus">
-                                                                                                        <input class="form-control js-child-focus js-visible-password" name="description" type="text"  placeholder="Description">
-                                                                                                    </div>
-                                                                                                </div>
-
-                                            <div class="form-group no-gutters">
-                                            <input type="file" name="image"
-                                                   accept="image/png,image/jpeg,image/jpg">
-                                            </div>
-                                            <div class="clearfix">
-                                                <div class="text-center no-gutters">
-
-                                                    <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                                        Submit
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                    <div class="form-group no-gutters">
+                                        <input class="form-control" name="name" type="text" placeholder="Name">
                                     </div>
-                                </div>
-                            </div>
+
+
+                                    <div class="form-group no-gutters">
+                                        <select class="form-control form-control-lg" name="category">
+                                            <option value="starters">Starters</option>
+                                            <option value="drink">Drink</option>
+                                            <option value="main">Main</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group no-gutters">
+                                        <div class="input-group js-parent-focus">
+                                            <input class="form-control js-child-focus js-visible-password" name="price"
+                                                   type="number" placeholder="Price On Dollar $">
+                                        </div>
+                                    </div>
+                                    <div class="form-group no-gutters">
+                                        <div class="input-group js-parent-focus">
+                                            <input class="form-control js-child-focus js-visible-password"
+                                                   name="quantity" type="number" placeholder="Quantity in stock">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group no-gutters">
+                                        <div class="input-group js-parent-focus">
+                                            <input class="form-control js-child-focus js-visible-password"
+                                                   name="description" type="text" placeholder="Description">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group no-gutters">
+                                        <input type="file" name="image"
+                                               accept="image/png,image/jpeg,image/jpg">
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="text-center no-gutters">
+
+                                            <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
+</div>
+</div>
 
-     <div th:insert="home.html :: header-mobile"> </div>
-    <!-- Page Loader -->
-    <div id="page-preloader">
-        <div class="page-loading">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+<div th:insert="home.html :: header-mobile"></div>
+<!-- Page Loader -->
+<div id="page-preloader">
+    <div class="page-loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
     </div>
+</div>
 
-    <!-- Vendor JS -->
-    <script src="libs/jquery/jquery.min.js"></script>
-    <script src="libs/popper/popper.min.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
-    <script src="libs/owl-carousel/owl.carousel.min.js"></script>
-    <script src="libs/slider-range/js/tmpl.js"></script>
-    <script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
-    <script src="libs/slider-range/js/draggable-0.1.js"></script>
-    <script src="libs/slider-range/js/jquery.slider.js"></script>
-    <script src="libs/slick-slider/js/slick.min.js"></script>
-    <script src="js/myjs.js"></script>
-    <!-- Template JS -->
-    <script src="js/theme.js"></script>
+<!-- Vendor JS -->
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/popper/popper.min.js"></script>
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/nivo-slider/js/jquery.nivo.slider.js"></script>
+<script src="libs/owl-carousel/owl.carousel.min.js"></script>
+<script src="libs/slider-range/js/tmpl.js"></script>
+<script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
+<script src="libs/slider-range/js/draggable-0.1.js"></script>
+<script src="libs/slider-range/js/jquery.slider.js"></script>
+<script src="libs/slick-slider/js/slick.min.js"></script>
+<script src="js/myjs.js"></script>
+<!-- Template JS -->
+<script src="js/theme.js"></script>
 </body>
 
 

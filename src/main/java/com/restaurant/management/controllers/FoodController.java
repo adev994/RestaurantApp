@@ -35,21 +35,24 @@ import java.util.stream.Collectors;
 @Controller
 public class FoodController {
 
+    private final PasswordEncoder passwordEncoder;
+    private final FoodRepository foodRepository;
+    private final OrderfoodRepository orderfoodRepository;
+    private final UsersRepository usersRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private FoodRepository foodRepository;
-    @Autowired
-    private OrderfoodRepository orderfoodRepository;
-    @Autowired
-    private UsersRepository usersRepository;
+    private final OrderRepository orderRepository;
 
-    @Autowired
-    private OrderRepository orderRepository;
+    private final ServletContext servletContext;
 
-    @Autowired
-    ServletContext servletContext;
+    public FoodController(PasswordEncoder passwordEncoder, FoodRepository foodRepository, OrderfoodRepository orderfoodRepository, UsersRepository usersRepository, OrderRepository orderRepository, ServletContext servletContext) {
+        this.passwordEncoder = passwordEncoder;
+        this.foodRepository = foodRepository;
+        this.orderfoodRepository = orderfoodRepository;
+        this.usersRepository = usersRepository;
+        this.orderRepository = orderRepository;
+        this.servletContext = servletContext;
+    }
+
     // this is the home page
     @GetMapping("/")
     public String home(){
@@ -98,11 +101,6 @@ public class FoodController {
 
     }
 
-
-
-
-
-
     @GetMapping("/checkout")
     public String food_checkout(Authentication authentication,Model model){
         Order order;
@@ -139,8 +137,6 @@ public class FoodController {
             total+=orderFood.getPrice()*orderFood.getQuantity_orderfood();
         }
         return total;
-
-
     }
 
     @GetMapping("/active-orders")

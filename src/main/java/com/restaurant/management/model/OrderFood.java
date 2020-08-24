@@ -13,7 +13,6 @@ public class OrderFood {
     @Column(name="orderfood_id")
     private int id;
 
-
     @OneToOne
     private User user;
 

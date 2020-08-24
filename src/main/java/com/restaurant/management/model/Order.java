@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "MyOrder")
+@Table(name = "my_order")
 public class Order {
 
     @Id
@@ -15,7 +15,7 @@ public class Order {
     @Column(name="order_id" )
     private int id;
 
-    @Column(name="paymentBy",nullable = true,updatable = true)
+    @Column(name="payment_by",nullable = true,updatable = true)
     private String paymentBy;
 
     @Column(name = "payed")

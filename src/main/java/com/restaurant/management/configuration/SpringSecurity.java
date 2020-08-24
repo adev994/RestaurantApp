@@ -1,34 +1,30 @@
 package com.restaurant.management.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRepository;
-import org.springframework.security.web.csrf.LazyCsrfTokenRepository;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.SecureRandom;
 
 
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    UserDetailsService userDetailsService;
+    final UserDetailsService userDetailsService;
 
-
+    public SpringSecurity(@Qualifier("usersDetailsService") UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -39,7 +35,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
                 .authorizeRequests()
-                .antMatchers("/js/**","/css/**","/img/**","/libs/**","/","/about-us").permitAll()
+                .antMatchers("/js/**", "/css/**", "/img/**", "/libs/**", "/", "/about-us").permitAll()
                 .antMatchers("/add-user").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -53,9 +49,9 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
     }
 
-
     @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(10,new SecureRandom());
+    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder(10, new SecureRandom());
+        return NoOpPasswordEncoder.getInstance();
     }
 }

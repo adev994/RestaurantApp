@@ -19,20 +19,20 @@ import java.util.ArrayList;
 @Controller
 public class UserController {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private UsersRepository userRepository;
+    private final UsersRepository userRepository;
 
-
+    public UserController(PasswordEncoder passwordEncoder, UsersRepository userRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
+    }
 
 
     @GetMapping("/login")
     public String login(){
         if (!AuthenticationSystem.isLogged()) return "user-login";
         return "redirect:/";
-
     }
 
     @GetMapping("add-user")

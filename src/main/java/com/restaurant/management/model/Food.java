@@ -15,10 +15,13 @@ public class Food {
 
     @Column(name="price",nullable = false,updatable = true)
     private float price;
+
     @Column(name="image",nullable = true,updatable = true)
     private String image;
+
     @Column(name = "quantity",nullable = true,updatable = true)
     private int quantity;
+
     @Column(name="description",nullable = true,updatable = true)
     private String description;
 

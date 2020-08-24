@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -10,16 +12,15 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <title>Restaurant App</title>
 
-    <meta name="keywords" content="Restaurant App">
-    <meta name="description" content="Restaurant App">
-    <meta name="author" content="tivatheme">
-
+    <meta content="Restaurant App" name="keywords">
+    <meta content="Restaurant App" name="description">
+    <meta content="tivatheme" name="author">
 
     <!-- Mobile Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
@@ -35,214 +36,245 @@
     <link rel="stylesheet" th:href="@{/libs/owl-carousel/assets/owl.carousel.min.css}">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/reponsive.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/reponsive.css}" type="text/css">
 </head>
 
-<body id="product-sidebar-left" class="product-grid-sidebar-left">
-    <header>
-        <!-- header left mobie -->
-        <div th:insert="home.html :: header"> </div>
-    </header>
+<body class="product-grid-sidebar-left" id="product-sidebar-left">
+<header>
+    <!-- header left mobie -->
+    <div th:insert="home.html :: header"></div>
+</header>
 
-    <!-- main content -->
-    <div class="main-content">
-        <div id="wrapper-site">
-            <div id="content-wrapper" class="full-width">
-                <div id="main">
-                    <div class="page-home">
-                        <!-- breadcrumb -->
-                        <nav class="breadcrumb-bg">
-                            <div class="container no-index">
-                                <div class="breadcrumb">
-                                    <ol>
-                                        <li>
-                                            <a th:href="@{/}">
-                                                <span>Home</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a th:href="@{/food}">
-                                                <span>Food</span>
-                                            </a>
-                                        </li>
+<!-- main content -->
+<div class="main-content">
+    <div id="wrapper-site">
+        <div class="full-width" id="content-wrapper">
+            <div id="main">
+                <div class="page-home">
+                    <!-- breadcrumb -->
+                    <nav class="breadcrumb-bg">
+                        <div class="container no-index">
+                            <div class="breadcrumb">
+                                <ol>
+                                    <li>
+                                        <a th:href="@{/}">
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/food}">
+                                            <span>Food</span>
+                                        </a>
+                                    </li>
 
-                                    </ol>
-                                </div>
+                                </ol>
                             </div>
-                        </nav>
+                        </div>
+                    </nav>
 
-                        <div class="container">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="sidebar-3 sidebar-collection col-lg-3 col-md-4 col-sm-4">
+                    <div class="container">
+                        <div class="content">
+                            <div class="row">
+                                <div class="sidebar-3 sidebar-collection col-lg-3 col-md-4 col-sm-4">
 
-                                        <!-- category menu -->
-                                        <div class="sidebar-block">
-                                            <div class="title-block">Categories</div>
-                                            <div class="block-content">
- <div class="cateTitle hasSubCategory open level1">
+                                    <!-- category menu -->
+                                    <div class="sidebar-block">
+                                        <div class="title-block">Categories</div>
+                                        <div class="block-content">
+                                            <div class="cateTitle hasSubCategory open level1">
 
-                                                                                   <a class="cateItem" th:href="@{/food}">All </a>
-
-
-                                                                                    </div>
-                                               <div class="cateTitle hasSubCategory open level1">
-
-                                         <a class="cateItem" th:href="@{/food/starters}">Starters</a>
-
-                                          </div>
-                                           <div class="cateTitle hasSubCategory open level1">
-
-                                                                                   <a class="cateItem" th:href="@{/food/main}">Main</a>
+                                                <a class="cateItem" th:href="@{/food}">All </a>
 
 
-                                                                                    </div>
-                                                                                       <div class="cateTitle hasSubCategory open level1">
-
-                                                                                                                                                                       <a class="cateItem" th:href="@{/food/drink}">Drinks</a>
-
-                                                                                                                                                                        </div>
-                                                                                                                                                                           <div class="cateTitle hasSubCategory open level1">
-
-                                                                                                                                                                                                                                                           <a class="cateItem" th:href="@{/food/others}">Others</a>
-
-                                                                                                                                                                                                                                                            </div>
                                             </div>
+                                            <div class="cateTitle hasSubCategory open level1">
 
-                                        </div>
+                                                <a class="cateItem" th:href="@{/food/starters}">Starters</a>
 
+                                            </div>
+                                            <div class="cateTitle hasSubCategory open level1">
 
-
-                                    </div>
-
-                                    <div class="col-sm-8 col-lg-9 col-md-8 product-container">
-                                      <strong><div th:if="${update_food_message}" class="text-success" th:text="${update_food_message}">
-                                                                                    </div></strong>
-                                                                                    <br>
-                                        <h1>Food Disponible </h1>
-                                         <div class="product-buttons d-flex">
-                                                                                                                                        <a th:href="@{/add-new-order}">
-                                                                                                                                                  <button style="margin-left:307px;background-color:#607d8b;" type="submit" class="btn btn-primary">Add New Order </button>
-                                                                                                                                                  </a>
+                                                <a class="cateItem" th:href="@{/food/main}">Main</a>
 
 
+                                            </div>
+                                            <div class="cateTitle hasSubCategory open level1">
 
-                                                                                                                                       </div>
-                                        <div class="js-product-list-top firt nav-top">
-                                            <div class="d-flex justify-content-around row">
-                                                <div class="col col-xs-12">
-                                                    <ul class="nav nav-tabs">
+                                                <a class="cateItem" th:href="@{/food/drink}">Drinks</a>
 
-                                                        <li>
-                                                            <a href="#list" data-toggle="tab" class="fa fa-list-ul"></a>
-                                                        </li>
-                                                    </ul>
+                                            </div>
+                                            <div class="cateTitle hasSubCategory open level1">
 
-                                                </div>
+                                                <a class="cateItem" th:href="@{/food/others}">Others</a>
 
                                             </div>
                                         </div>
-                                        <div class="tab-content product-items">
 
-
-                                            <div id="list" class="related tab-pane fade active show">
-<div th:each="food: ${foods}">
-                       <div class="row" >
-                                                                           <div class="item col-md-12">
-                                                                               <div class="product-miniature item-one first-item">
-                                                                                   <div class="row">
-                                                                                       <div class="col-md-4">
-                                                                                           <div class="thumbnail-container border" th:with="baseUrl='/img/food/'+${food.category}+'/'+${food.image}">
-
-                                                                                                   <img class="img-fluid image-cover" th:src="@{${baseUrl}}"  />
-
-
-                                                                                           </div>
-                                                                                       </div>
-                                                                                       <div class="col-md-8">
-                                                                                           <div class="product-description">
-                                                                                               <div class="product-groups">
-                                                                                                   <div class="product-title">
-                                                                                                       <a  th:text="${food.name}">Nulla et justo non augue</a>
-
-                                                                                                       <span class="info-stock" th:if="${food.quantity==0}" style="color:red">    <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                                                                                                                                                                                                                         <span th:text="${food.quantity}+' In Stock '">In stock</span>
-                                                                                                                                                                                                                                                                                     </span>
-                                                                                                        <span class="info-stock" th:unless="${food.quantity==0}">
-                                                                                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                                                                                                                                                   <span th:text="${food.quantity}+' In Stock '">In stock</span>
-                                                                                                                                                                                                               </span>
-
-                                                                                                   </div>
-
-                                                                                                   <div class="product-group-price">
-                                                                                                       <div class="product-price-and-shipping">
-                                                                                                           <span class="price" th:text="'$ '+${food.price}">£28.08</span>
-                                                                                                       </div>
-                                                                                                   </div>
-                                                                                                   <div class="discription" th:text="${food.description}">
-                                                                                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ultricies eget velit vitae bibendum. Cras condimentum libero
-                                                                                                       a lectus ultricies...
-                                                                                                   </div>
-                                                                                               </div>
-                                                                                               <div class="product-buttons d-flex">
-                                                                                                   <form th:action="@{/add-to-cart}" method="post" class="formAddToCart">
-
-                                                                                                       <input type="hidden" name="food_id" th:attr="value=${food.idFood}">
-                                                                                                          <button type="submit" style="
-    margin-top: -100px;" class="btn btn-primary">Add to cart </button>
-
-                                                                                                   </form>
-
-                                                                                               </div>
-                                                                                                 <div  sec:authorize="hasRole('ROLE_ADMIN')" >
-
-                                                                                                                                                                                                 <a th:href="@{/update-food(id=${food.idFood})}">        <button   style="margin-left: 200px;background-color:dodgerblue;"  type="button" class="btn btn-primary ">Update Food </button></a>
-
-
-                                                                                                                                                                                              </div>
-                                                                                           </div>
-                                                                                       </div>
-                                                                                   </div>
-                                                                               </div>
-                                                                           </div>
-                                                                       </div>
-                                            </div></div>
-                                        </div>
-
-                                        <!-- pagination -->
-                                        <div class="pagination">
-
-                                           <nav aria-label="Pagination" th:if="${foods.totalPages gt 0}">
-                                                                                   <ul class="pagination justify-content-center font-weight-bold">
-                                                                                       <li class="page-item" th:classappend="${foods.number eq 0} ? 'disabled'">
-                                                                                           <a class="page-link"
-                                                                                              th:href="@{/food?page={id}(id=${foods.number lt 2 ? 1 : foods.number})}"
-                                                                                              aria-label="Previous" title="Previous Page" data-toggle="tooltip">
-                                                                                               <span aria-hidden="true">&laquo;</span>
-                                                                                           </a>
-                                                                                       </li>
-                                                                                       <li class="page-item" th:classappend="${i eq foods.number + 1} ? 'active'"
-                                                                                           th:each="i : ${#numbers.sequence( 1, foods.totalPages, 1)}">
-                                                                                           <a class="page-link" th:href="@{/food?page={id}(id=${i})}" th:text="${i}"
-                                                                                              th:title="${'Page '+ i}" data-toggle="tooltip"></a>
-                                                                                       </li>
-                                                                                       <li class="page-item" th:classappend="${foods.number + 1 eq foods.totalPages} ? 'disabled'">
-                                                                                           <a class="page-link"
-                                                                                              th:href="@{/food?page={id}(id=${foods.number + 2})}"
-                                                                                              aria-label="Next" title="Next Page" data-toggle="tooltip">
-                                                                                               <span aria-hidden="true">&raquo;</span>
-                                                                                           </a>
-                                                                                       </li>
-                                                                                   </ul>
-                                                                               </nav>
-                                        </div>
                                     </div>
 
 
-                                    <!-- end col-md-9-1 -->
                                 </div>
+
+                                <div class="col-sm-8 col-lg-9 col-md-8 product-container">
+                                    <strong>
+                                        <div class="text-success" th:if="${update_food_message}"
+                                             th:text="${update_food_message}">
+                                        </div>
+                                    </strong>
+                                    <br>
+                                    <h1>Food Disponible </h1>
+                                    <div class="product-buttons d-flex">
+                                        <a th:href="@{/add-new-order}">
+                                            <button class="btn btn-primary"
+                                                    style="margin-left:307px;background-color:#607d8b;"
+                                                    type="submit">Add New Order
+                                            </button>
+                                        </a>
+
+
+                                    </div>
+                                    <div class="js-product-list-top firt nav-top">
+                                        <div class="d-flex justify-content-around row">
+                                            <div class="col col-xs-12">
+                                                <ul class="nav nav-tabs">
+
+                                                    <li>
+                                                        <a class="fa fa-list-ul" data-toggle="tab" href="#list"></a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-content product-items">
+
+
+                                        <div class="related tab-pane fade active show" id="list">
+                                            <div th:each="food: ${foods}">
+                                                <div class="row">
+                                                    <div class="item col-md-12">
+                                                        <div class="product-miniature item-one first-item">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="thumbnail-container border"
+                                                                         th:with="baseUrl='/img/food/'+${food.category}+'/'+${food.image}">
+
+                                                                        <img class="img-fluid image-cover"
+                                                                             th:src="@{${baseUrl}}"/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a th:text="${food.name}">Nulla et justo non augue</a>
+
+                                                                                <span class="info-stock"
+                                                                                      style="color:red"
+                                                                                      th:if="${food.quantity==0}">    <i
+                                                                                        aria-hidden="true"
+                                                                                        class="fa fa-check-square-o"></i>
+                                                                                <span class="info-stock"
+                                                                                      th:unless="${food.quantity==0}">
+                                                                                                            <i aria-hidden="true"
+                                                                                                               class="fa fa-check-square-o"></i>
+                                                                                                           <span th:text="${food.quantity}+' In Stock '">In stock</span>
+                                                                                                       </span>
+
+                                                                            </div>
+
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"
+                                                                                          th:text="'$ '+${food.price}">£28.08</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="discription"
+                                                                                 th:text="${food.description}">
+                                                                                Lorem ipsum dolor sit amet, consectetur
+                                                                                adipiscing elit. Etiam ultricies eget
+                                                                                velit vitae bibendum. Cras condimentum
+                                                                                libero
+                                                                                a lectus ultricies...
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex">
+                                                                            <form class="formAddToCart"
+                                                                                  method="post"
+                                                                                  th:action="@{/add-to-cart}">
+                                                                                <input name="food_id"
+                                                                                       th:attr="value=${food.idFood}"
+                                                                                       type="hidden">
+                                                                                <button class="btn btn-primary"
+                                                                                        style=" margin-top: -100px;"
+                                                                                        type="submit">Add to
+                                                                                    cart
+                                                                                </button>
+                                                                            </form>
+                                                                        </div>
+                                                                        <div sec:authorize="hasRole('ROLE_ADMIN')">
+
+                                                                            <a th:href="@{/update-food(id=${food.idFood})}">
+                                                                                <button class="btn btn-primary "
+                                                                                        style="margin-left: 200px;background-color:dodgerblue;"
+                                                                                        type="button">Update
+                                                                                    Food
+                                                                                </button>
+                                                                            </a>
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- pagination -->
+                                    <div class="pagination">
+
+                                        <nav aria-label="Pagination" th:if="${foods.totalPages gt 0}">
+                                            <ul class="pagination justify-content-center font-weight-bold">
+                                                <li class="page-item"
+                                                    th:classappend="${foods.number eq 0} ? 'disabled'">
+                                                    <a aria-label="Previous"
+                                                       class="page-link"
+                                                       data-toggle="tooltip"
+                                                       th:href="@{/food?page={id}(id=${foods.number lt 2 ? 1 : foods.number})}"
+                                                       title="Previous Page">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item"
+                                                    th:classappend="${i eq foods.number + 1} ? 'active'"
+                                                    th:each="i : ${#numbers.sequence( 1, foods.totalPages, 1)}">
+                                                    <a class="page-link" data-toggle="tooltip"
+                                                       th:href="@{/food?page={id}(id=${i})}"
+                                                       th:text="${i}" th:title="${'Page '+ i}"></a>
+                                                </li>
+                                                <li class="page-item"
+                                                    th:classappend="${foods.number + 1 eq foods.totalPages} ? 'disabled'">
+                                                    <a aria-label="Next"
+                                                       class="page-link"
+                                                       data-toggle="tooltip"
+                                                       th:href="@{/food?page={id}(id=${foods.number + 2})}"
+                                                       title="Next Page">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+
+                                <!-- end col-md-9-1 -->
                             </div>
                         </div>
                     </div>
@@ -250,33 +282,34 @@
             </div>
         </div>
     </div>
+</div>
 
- <div th:insert="home.html :: header-mobile"> </div>
+<div th:insert="home.html :: header-mobile"></div>
 
-    <!-- Page Loader -->
-    <div id="page-preloader">
-        <div class="page-loading">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+<!-- Page Loader -->
+<div id="page-preloader">
+    <div class="page-loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
     </div>
+</div>
 
-    <!-- Vendor JS -->
-    <script th:src="@{/libs/jquery/jquery.min.js}"></script>
-    <script th:src="@{/libs/popper/popper.min.js}"></script>
-    <script th:src="@{/libs/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:src="@{/libs/nivo-slider/js/jquery.nivo.slider.js}"></script>
-    <script th:src="@{/libs/owl-carousel/owl.carousel.min.js}"></script>
-    <script th:src="@{/libs/slider-range/js/tmpl.js}"></script>
-    <script th:src="@{/libs/slider-range/js/jquery.dependClass-0.1.js}"></script>
-    <script th:src="@{/libs/slider-range/js/draggable-0.1.js}"></script>
-    <script th:src="@{/libs/slider-range/js/jquery.slider.js}"></script>
+<!-- Vendor JS -->
+<script th:src="@{/libs/jquery/jquery.min.js}"></script>
+<script th:src="@{/libs/popper/popper.min.js}"></script>
+<script th:src="@{/libs/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/libs/nivo-slider/js/jquery.nivo.slider.js}"></script>
+<script th:src="@{/libs/owl-carousel/owl.carousel.min.js}"></script>
+<script th:src="@{/libs/slider-range/js/tmpl.js}"></script>
+<script th:src="@{/libs/slider-range/js/jquery.dependClass-0.1.js}"></script>
+<script th:src="@{/libs/slider-range/js/draggable-0.1.js}"></script>
+<script th:src="@{/libs/slider-range/js/jquery.slider.js}"></script>
 
-    <!-- Template JS -->
-    <script th:src="@{/js/theme.js}"></script>
+<!-- Template JS -->
+<script th:src="@{/js/theme.js}"></script>
 </body>
 
 

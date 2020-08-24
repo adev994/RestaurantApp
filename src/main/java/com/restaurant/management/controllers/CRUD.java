@@ -40,18 +40,19 @@ public class CRUD {
     @Value("${image_path}")
     private String image_path;
 
+    private final PasswordEncoder passwordEncoder;
+    private final FoodRepository foodRepository;
+    private final OrderfoodRepository orderfoodRepository;
+    private final UsersRepository usersRepository;
+    private final OrderRepository orderRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
-    private FoodRepository foodRepository;
-    @Autowired
-    private OrderfoodRepository orderfoodRepository;
-    @Autowired
-    private UsersRepository usersRepository;
-
-    @Autowired
-    private OrderRepository orderRepository;
+    public CRUD(PasswordEncoder passwordEncoder, FoodRepository foodRepository, OrderfoodRepository orderfoodRepository, UsersRepository usersRepository, OrderRepository orderRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.foodRepository = foodRepository;
+        this.orderfoodRepository = orderfoodRepository;
+        this.usersRepository = usersRepository;
+        this.orderRepository = orderRepository;
+    }
 
 
     @PostMapping("/addfood")
@@ -70,8 +71,7 @@ public class CRUD {
     }
 
     @GetMapping("/cart")
-    public String Cart(Authentication authentication, Model model){
-
+    public String addToCart(Authentication authentication, Model model){
         User user = usersRepository.findByName(authentication.getName());
         Order order = user.getOrders().stream().filter(myOrder -> !myOrder.isPayed() && myOrder.isSelected()).findFirst().orElse(new Order(false,user,true));
         orderRepository.save(order);
@@ -81,6 +81,7 @@ public class CRUD {
         model.addAttribute("order_foods",orderFoods);
         return "food-Cart";
     }
+
     @PostMapping("/add-to-cart")
     public String add_to_cart(int food_id, Authentication authentication){
         OrderFood orderFood;
@@ -99,14 +100,9 @@ public class CRUD {
             orderFood = order1.getOrderFoods().stream().filter(orderFood1 -> orderFood1.getFood().getIdFood()==food_id).findFirst().orElse(new OrderFood(user,food,order1,0));
             orderFood.setQuantity_orderfood(orderFood.getQuantity_orderfood()+1);
             orderFood.setPrice(food.getPrice());
-
-
-
             orderfoodRepository.save(orderFood);
         }
-
        foodRepository.save(food);
-
         return "redirect:/food";
     }
 
@@ -119,9 +115,7 @@ public class CRUD {
         food.setQuantity(food.getQuantity()+1);
         foodRepository.save(food);
         return "redirect:/cart";
-
     }
-
 
     @PostMapping("/checkout")
     public String checkout(String PaymentBy,Authentication authentication){
@@ -170,9 +164,7 @@ public class CRUD {
     public int Total_quantity(List<OrderFood> orderFoods){
 
         List<Integer> integers = orderFoods.stream().map(orderFood -> orderFood.getQuantity_orderfood()).collect(Collectors.toList());
-        Integer sum = integers.stream()
-                .mapToInt(Integer::intValue)
-                .sum();
+        Integer sum = integers.stream().mapToInt(Integer::intValue).sum();
         return sum;
     }
 }
